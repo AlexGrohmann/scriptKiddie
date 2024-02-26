@@ -1,11 +1,13 @@
 import os
+import subprocess
 
 # read IP
 ip = input("Enter ip:")
 # output IP
 print("Added IP is: " + ip)
 # nmap
-os.system("nmap -h")
+output = subprocess.getoutput("nmap -h")
+print(output)
 # dirbuster
 os.system("gobuster --help")
 
