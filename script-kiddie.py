@@ -4,8 +4,10 @@ import os
 ip = input("Enter ip:")
 # output IP
 print("Added IP is: " + ip)
-# test
-os.system("dir")
+# nmap
+os.system("nmap -h")
+# dirbuster
+os.system("gobuster --help")
 
 # nmap
 #   port 22 open
