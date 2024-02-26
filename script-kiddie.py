@@ -7,9 +7,12 @@ ip = input("Enter ip:")
 print("Added IP is: " + ip)
 # nmap
 output = subprocess.getoutput("nmap -h")
-print(output)
+# find in output
+pos1 = output.find("Nmap")
+# slice the important news
+print(output[pos1 : pos1 + 9])
 # dirbuster
-os.system("gobuster --help")
+# os.system("gobuster --help")
 
 # nmap
 #   port 22 open
