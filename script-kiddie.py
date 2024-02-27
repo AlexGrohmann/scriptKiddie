@@ -16,6 +16,10 @@ pos2 = output.find("Warning:")
 print(output[pos1 + 7 : pos2])
 sshOpen = output.find("open  ssh") != -1
 print("SSH is open: ", sshOpen)
+if sshOpen:
+    bruteforce = input("Bruteforce SSH Login? Y/N")
+    if bruteforce == "Y":
+        print("Lets have some fun")
 # dirbuster
 # os.system("gobuster --help")
 
