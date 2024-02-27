@@ -13,7 +13,9 @@ output = subprocess.getoutput("sudo nmap -sS -O " + ip)
 pos1 = output.find("SERVICE")
 pos2 = output.find("Warning:")
 # slice the important news
-print(output[pos1+7:pos2])
+print(output[pos1 + 7 : pos2])
+sshOpen = output.find("open  ssh") != -1
+print("SSH is open: ", sshOpen)
 # dirbuster
 # os.system("gobuster --help")
 
