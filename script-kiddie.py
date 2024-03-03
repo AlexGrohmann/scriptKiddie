@@ -42,9 +42,17 @@ def backdoorPDF():
     print("meow")
 
 
-print("What do you want to do?")
-i = input("\t[1]: attack, \n\t[2]: backdoor pdf creation\n")
-if int(i) == 1:
-    attack()
-if int(i) == 2:
-    backdoorPDF()
+def main():
+    print("What do you want to do?")
+    try:
+        i = input("\t[1]: attack, \n\t[2]: backdoor pdf creation\n")
+        if int(i) == 1:
+            attack()
+        if int(i) == 2:
+            backdoorPDF()
+    except ValueError:
+        print("invalid input\n")
+        main()
+
+
+main()
