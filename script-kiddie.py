@@ -39,17 +39,30 @@ def attack():
 
 
 def backdoorPDF():
+    # https://github.com/Jasmoon99/Embedded-PDF
     print("meow")
+
+
+def crack():
+    # hashidentifier
+    # john
+    # etc.
+    # input(hash)
+    print("crack")
 
 
 def main():
     print("What do you want to do?")
     try:
-        i = input("\t[1]: attack, \n\t[2]: backdoor pdf creation\n")
+        i = input(
+            "\t[1]: attack, \n\t[2]: backdoor pdf creation, \n\t[3]: crack hash \n"
+        )
         if int(i) == 1:
             attack()
         if int(i) == 2:
             backdoorPDF()
+        if int(i) == 3:
+            crack()
     except ValueError:
         print("invalid input\n")
         main()
