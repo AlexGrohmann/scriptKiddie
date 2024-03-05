@@ -51,13 +51,13 @@ def crack():
     # input(hash)
     # demo hash 1e6681065a0ddfa80714a3df70438f12 md5
     # demo hash 0400774cdcab43bc634ae6e5d737e9b6c7c8e5e3 sha1
-    hash = input("please add hash to crack: \n")
+    hash = input("please add hash to crack: ")
     # demo
     hash = "1e6681065a0ddfa80714a3df70438f12"
     # hash-identifier
-    output = subprocess.getoutput("hash-identifier " + hash)
-    print(output)
-    print("hää")
+    print("For debugging it uses this hash: " + hash)
+    hashIdentifierResponse = subprocess.getoutput("hash-identifier " + str(hash))
+    print(hashIdentifierResponse)
 
 
 def main():
