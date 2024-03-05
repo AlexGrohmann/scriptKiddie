@@ -1,5 +1,6 @@
 import os
 import subprocess
+from time import sleep
 
 
 # alt shift T
@@ -56,7 +57,9 @@ def crack():
     hash = "1e6681065a0ddfa80714a3df70438f12"
     # hash-identifier
     print("For debugging it uses this hash: " + hash)
-    hashIdentifierResponse = subprocess.getoutput("hash-identifier " + str(hash))
+    hashIdentifierResponse = subprocess.Popen("hash-identifier")
+    sleep(5)
+    hashIdentifierResponse.kill()
     print(hashIdentifierResponse)
 
 
