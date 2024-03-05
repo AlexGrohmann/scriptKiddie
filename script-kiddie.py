@@ -2,6 +2,7 @@ import os
 import subprocess
 
 
+# alt shift T
 def attack():
     # read IP
     ip = input("Enter ip:")
@@ -56,6 +57,7 @@ def crack():
     # hash-identifier
     output = subprocess.getoutput("hash-identifier " + hash)
     print(output)
+    print("hää")
 
 
 def main():
