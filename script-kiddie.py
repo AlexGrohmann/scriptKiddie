@@ -63,6 +63,17 @@ def crack():
     print(result)
     print(result.stdout)
 
+    p = subprocess.Popen(
+        ["hash-identifier", hash],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+    )
+
+    output, errors = p.communicate()
+
+    print(output)
+
 
 def main():
     print("What do you want to do?")
