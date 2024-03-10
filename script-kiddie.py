@@ -68,6 +68,8 @@ def crack():
         print(line)
     p.wait()
     print(p.returncode)
+    p.kill()
+    print("killed")
 
 
 def main():
