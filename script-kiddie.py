@@ -61,7 +61,8 @@ def crack():
     result = subprocess.run(
         ["hash-identifier " + hash], shell=True, capture_output=True, text=True
     )
-
+    print("XXXXXXXXX")
+    print(result)
     print(result.stdout)
 
 
