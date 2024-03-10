@@ -64,8 +64,6 @@ def crack():
     print(result.stdout)
 
     p = subprocess.Popen(["hash-identifier", hash], stdout=subprocess.PIPE)
-    for line in p.stdout:
-        print(line)
     p.wait()
     print(p.returncode)
     p.kill()
