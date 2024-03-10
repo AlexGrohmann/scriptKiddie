@@ -63,16 +63,11 @@ def crack():
     print(result)
     print(result.stdout)
 
-    p = subprocess.Popen(
-        ["msfconsole"],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        text=True,
-    )
-
-    output, errors = p.communicate()
-
-    print(output)
+    p = subprocess.Popen("hash-identifier", stdout=subprocess.PIPE)
+    for line in p.stdout:
+        print(line)
+    p.wait()
+    print(p.returncode)
 
 
 def main():
