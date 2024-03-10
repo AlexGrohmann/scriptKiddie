@@ -57,8 +57,12 @@ def crack():
     hash = "1e6681065a0ddfa80714a3df70438f12"
     # hash-identifier
     print("For debugging it uses this hash: " + hash)
-    hashIdentifierResponse = subprocess.getoutput("hash-identifier " + hash)
-    print(hashIdentifierResponse)
+
+    result = subprocess.run(
+        ["hash-identifier " + hash], shell=True, capture_output=True, text=True
+    )
+
+    print(result.stdout)
 
 
 def main():
