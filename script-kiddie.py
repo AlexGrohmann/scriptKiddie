@@ -58,10 +58,10 @@ def crack():
     # hash-identifier
     print("For debugging it uses this hash: " + hash)
 
-    result = subprocess.run(["ls"], shell=True, capture_output=True, text=True)
-    print("XXXXXXXXX")
-    print(result)
-    print(result.stdout)
+    # result = subprocess.run(["ls"], shell=True, capture_output=True, text=True)
+    # print("XXXXXXXXX")
+    # print(result)
+    # print(result.stdout)
 
     p = subprocess.run(
         ["hash-identifier", hash],
@@ -72,7 +72,7 @@ def crack():
         stdout=subprocess.PIPE,
     )
     # stdout, stderr = p
-    print(p)
+    print(p.stdout)
 
 
 def main():
