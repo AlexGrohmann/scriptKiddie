@@ -70,8 +70,9 @@ def crack():
         stderr=subprocess.PIPE,
         stdout=subprocess.PIPE,
     )
-    # stdout, stderr = p
-    print(p.stdout)
+    stdout, stderr = p.communicate()
+
+    print(stdout)
 
 
 def main():
