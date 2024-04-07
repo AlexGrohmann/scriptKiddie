@@ -75,11 +75,17 @@ def crack():
     print(stdout)
 
 
+def checklist():
+    print(
+        "Return a path for Yes and no question to do a checklist for pentest (return commands and todos)"
+    )
+
+
 def main():
     print("What do you want to do?")
     try:
         i = input(
-            "\t[1]: attack, \n\t[2]: backdoor pdf creation, \n\t[3]: crack hash \n"
+            "\t[1]: attack, \n\t[2]: backdoor pdf creation, \n\t[3]: crack hash, \n\t[4]: checklist \n"
         )
         if int(i) == 1:
             attack()
@@ -87,6 +93,8 @@ def main():
             backdoorPDF()
         if int(i) == 3:
             crack()
+        if int(i) == 4:
+            checklist()
     except ValueError:
         print("invalid input\n")
         main()
