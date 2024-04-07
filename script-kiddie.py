@@ -2,6 +2,8 @@ import os
 import subprocess
 from time import sleep
 
+from tools.ping import ping
+
 
 # alt shift T
 def attack():
@@ -86,7 +88,7 @@ def tools():
     try:
         i = input("\t[1]: ping, \n\t[2]: nmap, \n\t[3]: hydra \n")
         if int(i) == 1:
-            print("add IP and start nmap")
+            ping()
         if int(i) == 2:
             print("add IP and execute command")
         if int(i) == 3:
