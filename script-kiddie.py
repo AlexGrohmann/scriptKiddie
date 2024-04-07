@@ -1,32 +1,10 @@
-import os
-import subprocess
-from time import sleep
-
 from functions.attack import attack
 from functions.backdoorPDF import backdoor_pdf
 from functions.checklist import checklist
 from functions.crack import crack
-from tools.ping import ping
-
+from tools.tools import tools
 
 # alt shift T
-
-
-
-
-def tools():
-    print("What do you want to do?")
-    try:
-        i = input("\t[1]: ping, \n\t[2]: nmap, \n\t[3]: hydra \n")
-        if int(i) == 1:
-            ping()
-        if int(i) == 2:
-            print("add IP and execute command")
-        if int(i) == 3:
-            print("add IP and execute command")
-    except ValueError:
-        print("invalid input\n")
-        main()
 
 
 def main():
