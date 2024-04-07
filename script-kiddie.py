@@ -4,6 +4,7 @@ from time import sleep
 
 from functions.attack import attack
 from functions.backdoorPDF import backdoor_pdf
+from functions.checklist import checklist
 from functions.crack import crack
 from tools.ping import ping
 
@@ -11,10 +12,6 @@ from tools.ping import ping
 # alt shift T
 
 
-def checklist():
-    print(
-        "Return a path for Yes and no question to do a checklist for pentest (return commands and todos)"
-    )
 
 
 def tools():
