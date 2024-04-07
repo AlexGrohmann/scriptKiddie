@@ -3,15 +3,11 @@ import subprocess
 from time import sleep
 
 from functions.attack import attack
+from functions.backdoorPDF import backdoor_pdf
 from tools.ping import ping
 
 
 # alt shift T
-
-
-def backdoorPDF():
-    # https://github.com/Jasmoon99/Embedded-PDF
-    print("meow")
 
 
 def crack():
@@ -74,7 +70,7 @@ def main():
         if int(i) == 1:
             attack()
         if int(i) == 2:
-            backdoorPDF()
+            backdoor_pdf()
         if int(i) == 3:
             crack()
         if int(i) == 4:
