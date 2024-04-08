@@ -1,3 +1,4 @@
+from tools.nmap import nmap
 from tools.ping import ping
 
 
@@ -8,7 +9,7 @@ def tools():
         if int(i) == 1:
             ping()
         if int(i) == 2:
-            print("add IP and execute command")
+            nmap()
         if int(i) == 3:
             print("add IP and execute command")
     except ValueError:
