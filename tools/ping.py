@@ -1,2 +1,6 @@
+import os
+
+
 def ping():
-    print("ping pring ping")
+    ip = input("please add ip: \n")
+    os.system("ping " + ip)
