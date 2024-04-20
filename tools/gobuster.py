@@ -12,4 +12,4 @@ def gobuster():
     if wordlist == "L":
         wordlist = "./large-word-list.txt"
     # os.system("gobuster dir -u " + ip + " -w " + wordlist)
-    print("gobuster dir -u " + ip + " -w " + wordlist)
+    os.system("gobuster dir -u " + ip + " -w " + wordlist)
