@@ -1,5 +1,11 @@
 import re
 
 
-def check_for_valid_ip(input):
-    return re.match("^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$", input)
+def get_ip():
+    ip = input("please add ip: \n")
+    if re.match("^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$", ip):
+        return ip
+    else:
+        print("please insert valid IP\n")
+        get_ip()
+    return ""
