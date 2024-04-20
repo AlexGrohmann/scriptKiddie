@@ -1,6 +1,6 @@
 from os import kill
 from functions.attack import attack
-from functions.backdoorPDF import backdoor_pdf
+from functions.backdoor_pdf import backdoor_pdf
 from functions.checklist import checklist
 from functions.crack import crack
 from tools.tools import tools
