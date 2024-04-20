@@ -1,3 +1,4 @@
+from os import kill
 from functions.attack import attack
 from functions.backdoorPDF import backdoor_pdf
 from functions.checklist import checklist
@@ -13,6 +14,8 @@ def main():
         i = input(
             "\t[1]: attack, \n\t[2]: backdoor pdf creation, \n\t[3]: crack hash, \n\t[4]: checklist, \n\t[5]: tools \n"
         )
+        if i == "exit":
+            exit()
         if int(i) == 1:
             attack()
         if int(i) == 2:
