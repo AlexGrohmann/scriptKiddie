@@ -3,9 +3,7 @@ import subprocess
 
 def attack():
     # read IP
-    # ip = input("Enter ip:")
-    # DEBUG ONLY
-    ip = "192.168.178.99"
+    ip = input("Enter ip:")
     # output IP
     print("Added IP is: " + ip)
     # nmap
