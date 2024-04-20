@@ -16,13 +16,22 @@ class Colors:
     RESET = "\033[0m"
 
 
+def print_error(error):
+    print(f"{Colors.RED}{error}{Colors.RESET}")
+
+
+def print_status(status):
+    print(f"{Colors.GREEN}{status}{Colors.RESET}")
+
+
 def get_ip():
     while True:
         ip = input("Please enter an IP address: \n")
         if re.match("^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$", ip):
+            print_status("IP added: {ip}")
             return ip
         else:
-            print(f"{Colors.RED}Please insert a valid IP address.\n{Colors.RESET}")
+            print_error("Please enter valid input")
 
 
 def attack():
