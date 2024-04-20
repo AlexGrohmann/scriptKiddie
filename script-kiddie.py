@@ -28,7 +28,7 @@ def get_ip():
     while True:
         ip = input("Please enter an IP address: \n")
         if re.match("^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$", ip):
-            print_status("IP added: {ip}")
+            print_status("IP added: " + ip)
             return ip
         else:
             print_error("Please enter valid input")
