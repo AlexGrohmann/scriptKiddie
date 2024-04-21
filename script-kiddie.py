@@ -102,22 +102,36 @@ def checklist():
 
 
 def crack():
+
+    # Command and its arguments as separate elements in a list
+    command = ["hash-identifier", "1e6681065a0ddfa80714a3df70438f12"]
+
     # Start a long-running process
     process = subprocess.Popen(
-        ["hash-identifier", "1e6681065a0ddfa80714a3df70438f12"],
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        stdin=subprocess.PIPE,
+        command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE
     )
+
+    # Set a timeout for reading the output (in seconds)
+    output_timeout = 10  # Adjust as needed
 
     # Interact with the process
     while True:
-        # Read output from the process
-        output = process.stdout.readline().decode().strip()
-        if output == "" and process.poll() is not None:
+        # Read output from the process with a timeout
+        try:
+            output = process.stdout.readline().decode().strip()
+            if output == "" and process.poll() is not None:
+                break
+            if output:
+                print(output)
+        except subprocess.TimeoutExpired:
+            # If no new output is received within the timeout, terminate the process
+            print("No new output received. Terminating the process.")
+            process.terminate()
             break
-        if output:
-            print(output)
+
+        # Check if the process has terminated
+        if process.poll() is not None:
+            break
 
     # Wait for the process to complete
     process.wait()
