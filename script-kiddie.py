@@ -118,6 +118,7 @@ def crack():
     if process.returncode == 0:
         # Parse the output to find the hash type
         hash_type_match = re.search("Most Likely", output)
+        print(hash_type_match)
         if hash_type_match:
             hash_type = hash_type_match.group(1).strip()
             print("Hash type:", hash_type)
