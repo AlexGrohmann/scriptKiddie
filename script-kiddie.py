@@ -104,56 +104,27 @@ def checklist():
 
 def crack():
 
-    # Command and its arguments as separate elements in a list
-    command = ["hash-identifier", "1e6681065a0ddfa80714a3df70438f12"]
+    # Command to run name-that-hash
+    command = ["name-that-hash", "your_hash_here"]
 
-    # Start a long-running process
-    process = subprocess.Popen(
-        command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE
-    )
+    # Start the process and capture its output
+    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
-    # Set a timeout for reading the output (in seconds)
-    output_timeout = 10  # Adjust as needed
+    # Read the output
+    output, _ = process.communicate()
+    output = output.decode()
 
-    # Interact with the process
-    while True:
-        # Read output from the process with a timeout
-        try:
-            output = process.stdout.readline().decode().strip()
-            if output == "" and process.poll() is not None:
-                print("no output")
-                break
-            if output:
-                print(output)
-                print("OUTPUT")
-            else:
-                # No new output received, wait for a short duration
-                time.sleep(0.1)
-                output_timeout -= 0.1  # Decrease the timeout duration
-                print(output_timeout)
-                if output_timeout <= 0:
-                    print("Output timeout reached. Terminating the process.")
-                    process.terminate()
-                    break
-        except subprocess.TimeoutExpired:
-            # If no new output is received within the timeout, terminate the process
-            print("No new output received. Terminating the process.")
-            process.terminate()
-            break
-
-        # Check if the process has terminated
-        if process.poll() is not None:
-            break
-
-    # Wait for the process to complete
-    process.wait()
-
-    # Optionally, retrieve stderr
-    stderr_output = process.stderr.read().decode().strip()
-    if stderr_output:
-        print("Error:", stderr_output)
-
-    print("done")
+    # Check if the process completed successfully
+    if process.returncode == 0:
+        # Parse the output to find the hash type
+        hash_type_match = re.search(r"\[+\] Potentially Identifiers: (.+)", output)
+        if hash_type_match:
+            hash_type = hash_type_match.group(1).strip()
+            print("Hash type:", hash_type)
+        else:
+            print("Unable to determine the hash type.")
+    else:
+        print("Error running name-that-hash:", process.stderr.read().decode().strip())
 
 
 def gobuster():
