@@ -125,6 +125,7 @@ def crack():
                 break
             if output:
                 print(output)
+                print("OUTPUT")
             else:
                 # No new output received, wait for a short duration
                 time.sleep(0.1)
@@ -151,6 +152,8 @@ def crack():
     stderr_output = process.stderr.read().decode().strip()
     if stderr_output:
         print("Error:", stderr_output)
+
+    print("done")
 
 
 def gobuster():
