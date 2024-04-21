@@ -116,24 +116,19 @@ def crack():
 
     # Check if the process completed successfully
     if process.returncode == 0:
-        # Parse the output to find the hash type
-        hash_type_match = re.search("Most Likely", output)
-        print(output)
-        if hash_type_match:
-            # Regular expression to extract any hash type mentioned after "Most Likely"
-            pattern = r"Most Likely\s+(\w+)"
 
-            # Search for the pattern in the output
-            match = re.search(pattern, output)
+        # Regular expression to extract any hash type mentioned after "Most Likely"
+        pattern = r"Most Likely\s+(\w+)"
 
-            # If the pattern is found, extract the hash type
-            if match:
-                hash_type = match.group(1)
-                print("Hash type:", hash_type)
-            else:
-                print("Hash type not found.")
+        # Search for the pattern in the output
+        match = re.search(pattern, output)
+
+        # If the pattern is found, extract the hash type
+        if match:
+            hash_type = match.group(1)
+            print("Hash type:", hash_type)
         else:
-            print("Unable to determine the hash type.")
+            print("Hash type not found.")
     else:
         print("Error running name-that-hash:", process.stderr.read().decode().strip())
 
