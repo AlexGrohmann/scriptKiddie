@@ -104,7 +104,7 @@ def checklist():
 def crack():
     # Start a long-running process
     process = subprocess.Popen(
-        ["hash-identifier 1e6681065a0ddfa80714a3df70438f12"],
+        ["hash-identifier", "1e6681065a0ddfa80714a3df70438f12"],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         stdin=subprocess.PIPE,
