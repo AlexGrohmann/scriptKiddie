@@ -105,7 +105,7 @@ def checklist():
 def crack():
 
     # Command to run name-that-hash
-    command = ["name-that-hash", "--text", "'1e6681065a0ddfa80714a3df70438f12'"]
+    command = ["name-that-hash", "--text", "1e6681065a0ddfa80714a3df70438f12"]
 
     # Start the process and capture its output
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
