@@ -102,19 +102,30 @@ def checklist():
 
 
 def crack():
-    hash = input("Please add hash to crack: ")
-    hash = "1e6681065a0ddfa80714a3df70438f12"
-    print(f"For debugging it uses this hash: {hash}")
-
-    p = subprocess.Popen(
-        ["hash-identifier", hash],
-        shell=True,
-        text=True,
-        stderr=subprocess.PIPE,
+    # Start a long-running process
+    process = subprocess.Popen(
+        ["hash-identifier 1e6681065a0ddfa80714a3df70438f12"],
         stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        stdin=subprocess.PIPE,
     )
-    stdout, _ = p.communicate()
-    print(stdout)
+
+    # Interact with the process
+    while True:
+        # Read output from the process
+        output = process.stdout.readline().decode().strip()
+        if output == "" and process.poll() is not None:
+            break
+        if output:
+            print(output)
+
+    # Wait for the process to complete
+    process.wait()
+
+    # Optionally, retrieve stderr
+    stderr_output = process.stderr.read().decode().strip()
+    if stderr_output:
+        print("Error:", stderr_output)
 
 
 def gobuster():
