@@ -126,7 +126,12 @@ def crack():
                 print(output)
             else:
                 # No new output received, wait for a short duration
-                time.sleep(output_timeout)
+                time.sleep(0.1)
+                output_timeout -= 0.1  # Decrease the timeout duration
+                if output_timeout <= 0:
+                    print("Output timeout reached. Terminating the process.")
+                    process.terminate()
+                    break
         except subprocess.TimeoutExpired:
             # If no new output is received within the timeout, terminate the process
             print("No new output received. Terminating the process.")
@@ -137,13 +142,13 @@ def crack():
         if process.poll() is not None:
             break
 
-        # Wait for the process to complete
-        process.wait()
+    # Wait for the process to complete
+    process.wait()
 
-        # Optionally, retrieve stderr
-        stderr_output = process.stderr.read().decode().strip()
-        if stderr_output:
-            print("Error:", stderr_output)
+    # Optionally, retrieve stderr
+    stderr_output = process.stderr.read().decode().strip()
+    if stderr_output:
+        print("Error:", stderr_output)
 
 
 def gobuster():
