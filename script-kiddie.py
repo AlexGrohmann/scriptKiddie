@@ -121,6 +121,7 @@ def crack():
         try:
             output = process.stdout.readline().decode().strip()
             if output == "" and process.poll() is not None:
+                print("no output")
                 break
             if output:
                 print(output)
