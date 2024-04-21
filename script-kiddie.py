@@ -128,6 +128,7 @@ def crack():
                 # No new output received, wait for a short duration
                 time.sleep(0.1)
                 output_timeout -= 0.1  # Decrease the timeout duration
+                print(output_timeout)
                 if output_timeout <= 0:
                     print("Output timeout reached. Terminating the process.")
                     process.terminate()
