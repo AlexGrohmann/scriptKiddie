@@ -120,7 +120,7 @@ def crack():
         hash_type_match = re.search("Most Likely", output)
         print(output)
         if hash_type_match:
-            hash_type = hash_type_match.group(1).strip()
+            hash_type = output[output.find("Most Likely")]
             print("Hash type:", hash_type)
         else:
             print("Unable to determine the hash type.")
