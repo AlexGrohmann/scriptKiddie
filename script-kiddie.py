@@ -50,6 +50,12 @@ def attack():
     ssh_open = "open  ssh" in nmap_output
     print("SSH is open: ", ssh_open)
 
+    # TODO: SMB
+    # TODO: SQLmap
+    # TODO: FTP
+
+    
+
     if ssh_open:
         bruteforce = input("Bruteforce SSH Login? Y/N: ")
         if bruteforce.upper() == "Y":
@@ -159,6 +165,8 @@ def ping():
 def tools():
     print("What do you want to do?")
     try:
+        # TODO: John
+        # TODO: Reverse shells
         i = int(input("\t[1]: Ping\n\t[2]: Nmap\n\t[3]: Gobuster\n"))
         if i == 1:
             ping()
