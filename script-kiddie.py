@@ -54,8 +54,6 @@ def attack():
     # TODO: SQLmap
     # TODO: FTP
 
-    # TEST
-
     if ssh_open:
         bruteforce = input("Bruteforce SSH Login? Y/N: ")
         if bruteforce.upper() == "Y":
