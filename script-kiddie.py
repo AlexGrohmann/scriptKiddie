@@ -134,7 +134,7 @@ def crack():
         else:
             print("Hash type not found.")
     else:
-        print("Error running name-that-hash:", process.stderr.read().decode().strip())
+        print("Error running name-that-hash:", process.stderr.read().decode().strip()) # type: ignore
 
 
 def gobuster():
